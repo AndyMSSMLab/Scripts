@@ -164,9 +164,12 @@ if($outfile eq "stdout" || $outfile eq "STDOUT"){
 }
 
 #perl window2.pl aa 1 2 3 1000 0 18 1 0.1 3 0.5
-print STDOUT "Sign_individuals_t",$b_thres,"_n",$n_thres,"_w",$window/1000,"k_",$mode,"\tSign_direction_t",$b_thres,"_n",$n_thres,"_w",$window/1000,"k_",$mode,"\tSign_window_t",$b_thres,"_n",$n_thres,"_w",$window/1000,"k_",$mode,"\n";
+print STDOUT $header,"\tSign_individuals_t",$b_thres,"_n",$n_thres,"_w",$window/1000,"k_",$mode,"\tSign_direction_t",$b_thres,"_n",$n_thres,"_w",$window/1000,"k_",$mode,"\tSign_window_t",$b_thres,"_n",$n_thres,"_w",$window/1000,"k_",$mode,"\n";
 
 for(my $i = 0; $i <$nrow; $i++){
+    for(my $j = 0; $j<$ncol; $j++){
+        print STDOUT $data[$i][$j],"\t";
+    }
     print STDOUT $sign_ind[$i],"\t",$direction_all[$i],"\t",$sign[$i],"\n";
 }
 
